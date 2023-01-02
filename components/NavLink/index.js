@@ -6,15 +6,13 @@ export default function NavLink({ href, children }) {
   // console.log(useRouter());
   const router = useRouter();
   return (
-    <div>
-      <Link href={href}>
-        <a
-          className={`nav-link  ${router.pathname === href ? 'active' : ''}`}
-          aria-current="page"
-        >
-          {children}
-        </a>
-      </Link>
-    </div>
+    (<Link
+      href={href}
+      className={`nav-link  ${router.pathname === href ? 'active' : ''}`}
+      aria-current="page">
+
+      {children}
+
+    </Link>)
   );
 }
