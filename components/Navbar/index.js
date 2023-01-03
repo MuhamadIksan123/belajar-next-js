@@ -24,9 +24,7 @@ export default function Navbar() {
     <nav className="container navbar navbar-expand-lg navbar-dark">
       <div className="container-fluid">
         <Link href={'/'} className="navbar-brand">
-
           <img src="/images/logo.svg" alt="semina" />
-
         </Link>
         <button
           className="navbar-toggler"
