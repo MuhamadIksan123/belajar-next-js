@@ -14,23 +14,30 @@ export default function CardEvent({ data, title, subTitle }) {
             <div className="col-lg-3 col-md-6 col-12" key={index}>
               <div className="card-grow h-100">
                 <span className="badge-pricing">
-                  {data.tickets[0].price === 0
-                    ? 'free'
-                    : `$${data.tickets[0].price}`}
+                  {data.tickets.map((t) => (
+                    <div key={t._id}>
+                      {t.statusTicketCategories
+                        ? t.price === 0
+                          ? 'free'
+                          : `$ ${t.price}`
+                        : ''}
+                    </div>
+                  ))}
                 </span>
-                {/* <img
-                  src={`${process.env.NEXT_PUBLIC_API}/${data.image.name}`}
+                <img
+                  src={`${process.env.NEXT_PUBLIC_API}${data.image.name}`}
                   alt="semina"
-                /> */}
+                />
                 <div className="card-content">
                   <div className="card-title">{data.title}</div>
                   <div className="card-subtitle">{data.category.name}</div>
                   <div className="description">
                     {data.venueName}, {formatDate(data.date)}
                   </div>
-                  <Link href={`/detail/${data._id}`}>
-                    <a className="stretched-link"></a>
-                  </Link>
+                  <Link
+                    href={`/detail/${data._id}`}
+                    className="stretched-link"
+                  ></Link>
                 </div>
               </div>
             </div>
